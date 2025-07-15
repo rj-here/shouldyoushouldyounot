@@ -10,12 +10,12 @@ while (decision === "yes" || decision === "Yes") { //Loop running until user say
     decision = prompt("Do you have a point to make? (Yes or No)"); //Keep going until the user wishes to stop
 }
 if (decisionPoints > 0) {//Positive -> Good (probably)
-    alert("The points raised in making your decision of" + inputText + " are: " + decisionPoints + " points.\nThis sounds like a good decision to make. Ultimately, the decision is yours!");
+    alert("The points raised in making your decision of " + inputText + " are: " + decisionPoints + " points.\nThis sounds like a good decision to make. Ultimately, the decision is yours!");
 }
 else if (decisionPoints < 0) {//Negative -> Bad (probably)
-    alert("The points raised in making your decision of" + inputText + " are: " + decisionPoints + " points.\nThis doesn't sound like a good decision to make. Ultimately, the decision is yours!");
+    alert("The points raised in making your decision of " + inputText + " are: " + decisionPoints + " points.\nThis doesn't sound like a good decision to make. Ultimately, the decision is yours!");
 }
 else if (decisionPoints == 0) {//Neutral -> On you, but then back to square one!
-    alert("The points raised in making your decision are: " + decisionPoints + " points.\nThis sounds like a decision, which if made is okay, and if not made, is also okay. It's not the end of the world and ultimately, the decision is yours!");
+    alert("The points raised in making your decision of " + inputText + " are: " + decisionPoints + " points.\nThis sounds like a decision, which if made is okay, and if not made, is also okay. It's not the end of the world and ultimately, the decision is yours!");
 }
 }
