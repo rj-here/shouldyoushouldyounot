@@ -1,33 +1,58 @@
 function takePoints() {
     var wordsToIgnore = [
-        "kill", "k1ll", "k!ll", "ki11", "k!11", "k!l1", "k1l1",
-        "die", "d1e", "d!e", "di3", "d!3",
+        // Variations for "kill"
+        "kill", "k1ll", "k!ll", "ki11", "k!11", "k!l1", "k1l1", "k!l!", "k1l!", "k!11!", "k1!1!",
+
+        // Variations for "die"
+        "die", "d1e", "d!e", "di3", "d!3", "d!3!", "d13!",
+
+        // Variations for "suicide"
         "suicide", "su!cide", "su1cide", "sui!cide", "suic!de", "suic1de", "su!c!de", "su!c1de", "su1c!de",
+        "5uicide", "5u!cide", "5u1cide", "5ui!cide", "5uic!de", "5uic1de", "5u!c!de", "5u!c1de", "5u1c!de",
+
+        // Variations for "destroy"
         "destroy", "d3stroy", "d3str0y", "d3str@y", "d!stroy", "d!str0y", "d!str@y", "d!str0y!",
-        "harm", "h@rm", "h4rm", "h!rm", "h4r!", "h@r!",
-        "hurt", "h!rt", "h4rt", "h@rt", "h!r!", "h4r!",
-        "abuse", "4buse", "ab!se", "abuse!", "abus3", "4bus3", "ab!s3", "4b!se",
-        "neglect", "n3glect", "n3gl3ct", "n3g!ect", "n3g!l3ct", "n3g!l3c7",
-        "steal", "st3al", "st3@l", "st3@1", "st3@!", "st3@l!",
-        "lie", "l!e", "l1e", "l!3", "l13", "l!3!",
-        "cheat", "ch3at", "ch3@t", "ch3@!", "ch3@t!",
+        "d3$tr0y", "d3$tr@y", "d!$tr0y", "d!$tr@y", "d!$tr0y!",
+
+        // Variations for "harm"
+        "harm", "h@rm", "h4rm", "h!rm", "h4r!", "h@r!", "h4r!", "h@rm!", "h4rm!", "h!rm!",
+
+        // Variations for "hurt"
+        "hurt", "h!rt", "h4rt", "h@rt", "h!r!", "h4r!", "h!r7", "h4r7", "h!r!", "h4r!",
+
+        // Variations for "abuse"
+        "abuse", "4buse", "ab!se", "abuse!", "abus3", "4bus3", "ab!s3", "4b!se", "4bu$e", "4bu$3", "4b!$3",
+
+        // Variations for "neglect"
+        "neglect", "n3glect", "n3gl3ct", "n3g!ect", "n3g!l3ct", "n3g!l3c7", "n3g!l3c7!", "n3g!l3c7!",
+
+        // Variations for "steal"
+        "steal", "st3al", "st3@l", "st3@1", "st3@!", "st3@l!", "5teal", "5t3al", "5t3@l", "5t3@1", "5t3@!",
+
+        // Variations for "lie"
+        "lie", "l!e", "l1e", "l!3", "l13", "l!3!", "l!3!", "l!3!",
+
+        // Variations for "cheat"
+        "cheat", "ch3at", "ch3@t", "ch3@!", "ch3@t!", "ch34t", "ch34t!", "ch34@", "ch34@!",
+
+        // Variations for "manipulate"
         "manipulate", "man!pulate", "man1pulate", "man!pu1ate", "man!pu!ate", "man!pulat3", "man!pu1at3",
         "m4nipulate", "m4n!pulate", "m4n1pulate", "m4n!pu1ate", "m4n!pu!ate", "m4n!pulat3", "m4n!pu1at3",
         "man!pul@te", "man!pul@t3", "man!pu1@te", "man!pu1@t3", "m4n!pul@te", "m4n!pul@t3", "m4n!pu1@te", "m4n!pu1@t3",
-        "exploit", "exp!oit", "exp10it", "exp!0it", "exp!0!t", "exp!0it!", "exp!oit!",
-        "oppress", "0ppress", "0ppr3ss", "0ppr!ss", "0ppr3ss!", "0ppr3ss3d", "0ppr!ss3d",
-        "discriminate", "d!scriminate", "d1scriminate", "d!scr!minate", "d!scr!m!nate", "d!scr!m!nat3", "d!scr!m!n@t3",
-        "d!scr!m!n@te", "d!scr!m!n@t3", "d!scr!m!n@t3!", "d!scr!m!n@t3d", "d!scr!m!n@t3d!",
-        "d!scr!m!n@t3r", "d!scr!m!n@t3rs", "d!scr!m!n@t3rs!",
-        "d!scr!m!n@t0r", "d!scr!m!n@t0rs", "d!scr!m!n@t0rs!",
-        "d!scr!m!n@t0ry", "d!scr!m!n@t0ry!",
-        "bully", "bu11y", "bu!ly", "bu!1y", "bu!11y", "bu!ly!",
-        "harass", "h@rass", "h4rass", "h!rass", "h4r@ss", "h4r@ss!", "h!r@ss!",
-        "terror", "t3rror", "t3rr0r", "t3rr0r!", "t3rr0r1st", "t3rr0r1sm", "t3rr0r!sm",
-        "assault", "ass@ult", "ass4ult", "ass!ult", "ass4u1t", "ass4u1t!", "ass!u1t!",
-        "execute", "3xecute", "3x3cute", "3x3cut3", "3x3cvt3", "3x3cvt@", "3x3cvt!",
-        "ex3cute", "ex3cut3", "ex3cvt3", "ex3cvt@", "ex3cvt!", "ex!cute", "ex!cut3",
-        "ex!cvt3", "ex!cvt@", "ex!cvt!", "ex3cvt@", "ex3cvt!", "ex3cvt1", "ex3cvtl"
+
+        // Variations for "attack"
+        "attack", "@ttack", "att@ck", "@tt@ck", "att4ck", "@tt4ck", "att4ck!", "@tt4ck!", "att@ck!", "@tt@ck!",
+        "4ttack", "4tt@ck", "4tt4ck", "4tt4ck!", "4tt@ck!", "@tt4ck!", "@tt4ck", "@tt@ck!",
+        "att4ck3", "@tt4ck3", "att@ck3", "@tt@ck3", "att4ck3!", "@tt4ck3!", "att@ck3!", "@tt@ck3!",
+        "4tt4ck3", "4tt@ck3", "4tt4ck3!", "4tt@ck3!", "@tt4ck3!", "@tt@ck3!",
+
+        // Variations for "annihilate"
+        "annihilate", "@nnihilate", "ann!hilate", "@nn!hilate", "ann1hilate", "@nn1hilate",
+        "ann!h!late", "@nn!h!late", "ann!h1late", "@nn!h1late", "ann!h!l@te", "@nn!h!l@te",
+        "ann!h!l@t3", "@nn!h!l@t3", "ann!h1l@te", "@nn!h1l@te", "ann!h1l@t3", "@nn!h1l@t3",
+        "4nnihilate", "4nn!hilate", "4nn1hilate", "4nn!h!late", "4nn!h1late", "4nn!h!l@te",
+        "4nn!h!l@t3", "4nn!h1l@te", "4nn!h1l@t3", "@nn!h!l4te", "@nn!h!l4t3", "4nn!h!l4te",
+        "4nn!h!l4t3", "ann!h!l4te", "ann!h!l4t3", "@nn!h!l4te", "@nn!h!l4t3"
     ];
 
     var inputText = prompt("What decision do you want to make?"); // Get the input text from the user
