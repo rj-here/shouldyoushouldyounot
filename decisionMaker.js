@@ -82,12 +82,10 @@ function takePoints() {
 
     while (decision.toLowerCase() === "yes") { // Loop running until user says no
         var point = prompt("Enter your point:"); // Get the point from the user
-       console.log("User input for point:", point); // Debugging
 
         // Check if the point contains any of the words to ignore
         if (wordsToIgnore.some(word => point.toLowerCase().includes(word))) {
             alert("Sorry, but HARM IS NOT ALLOWED!\nThis decision maker is meant to help you make decisions that are not harmful to yourself or others. Please try again with a different decision.");
-            console.log("Harmful word detected in point:", point); // Debugging
             return; // Exit the function completely
         }
         var pointValue = parseInt(prompt("What is the value of this point?")); // Get the point's value from the user
