@@ -52,7 +52,19 @@ function takePoints() {
         "ann!h!l@t3", "@nn!h!l@t3", "ann!h1l@te", "@nn!h1l@te", "ann!h1l@t3", "@nn!h1l@t3",
         "4nnihilate", "4nn!hilate", "4nn1hilate", "4nn!h!late", "4nn!h1late", "4nn!h!l@te",
         "4nn!h!l@t3", "4nn!h1l@te", "4nn!h1l@t3", "@nn!h!l4te", "@nn!h!l4t3", "4nn!h!l4te",
-        "4nn!h!l4t3", "ann!h!l4te", "ann!h!l4t3", "@nn!h!l4te", "@nn!h!l4t3"
+        "4nn!h!l4t3", "ann!h!l4te", "ann!h!l4t3", "@nn!h!l4te", "@nn!h!l4t3",
+
+         // Variations for "fire"
+        "fire", "f1re", "f!re", "f!r3", "f1r3", "f!r3!", "f1r3!", "f!re!", "f1re!", 
+        "f!r@", "f1r@", "f!r@!", "f1r@!", "f!r3@", "f1r3@", "f!r3@!", "f1r3@!",
+
+        // Variations for "flame"
+        "flame", "f1ame", "f!ame", "f1am3", "f!am3", "flam3", "fl@m3", "fl@me", 
+        "f!@me", "f1@me", "f!@m3", "f1@m3", "fl@m3!", "fl@me!", "f!@me!", "f1@me!",
+
+        // Variations for "burn"
+        "burn", "b!rn", "b1rn", "b!r!", "b1r!", "b!rn!", "b1rn!", "b!r@", "b1r@", 
+        "b!r@!", "b1r@!", "b!rn@", "b1rn@", "b!rn@!", "b1rn@!"
     ];
 
     var inputText = prompt("What decision do you want to make?"); // Get the input text from the user
