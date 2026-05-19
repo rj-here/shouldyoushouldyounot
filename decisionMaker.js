@@ -110,7 +110,7 @@ var wordsToIgnore = [
     var decisionPoints = 0; // Initialize the decision points
     var decision = prompt("Do you have a point to make? (Yes or No)"); // Add a point for making the decision
 
-    while (decision.toLowerCase() === "yes") { // Loop running until user says no
+while (decision.toLowerCase() === "yes") { // Loop running until user says no
         var point = prompt("Enter your point:"); // Get the point from the user
 
         // Check if the point contains any of the words to ignore
@@ -118,8 +118,21 @@ var wordsToIgnore = [
             alert("Sorry, but HARM IS NOT ALLOWED!\nThis decision maker is meant to help you make decisions that are not harmful to yourself or others. Please try again with a different decision.");
             return; // Exit the function completely
         }
-        var pointValue = parseInt(prompt("What is the value of this point?")); // Get the point's value from the user
-        decisionPoints += pointValue; // Adding the "value" of the point for/against the decision
+        
+        var pointValue; // what you add to decision points
+        do {
+            pointValue = prompt("What is the value of this point? Positive - FOR, Negative - AGAINST");
+            
+            // Added a check for empty strings, because isNaN("") actually returns false!
+            if (isNaN(pointValue) || pointValue.trim() === "") {
+                alert("Invalid! Please enter a number.");
+            }
+        }
+        while (isNaN(pointValue) || pointValue.trim() === "");
+
+        // THE FIX: Convert the string to a number and add it to the total
+        decisionPoints += parseInt(pointValue);
+
         decision = prompt("Do you have a point to make? (Yes or No)"); // Keep going until the user wishes to stop
     }
 
