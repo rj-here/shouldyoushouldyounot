@@ -66,6 +66,10 @@ var wordsToIgnore = [
     "burn", "b!rn", "b1rn", "b!r!", "b1r!", "b!rn!", "b1rn!", "b!r@", "b1r@", 
     "b!r@!", "b1r@!", "b!rn@", "b1rn@", "b!rn@!", "b1rn@!",
 
+    // Variations for "take"
+    "take", "t@ke", "t4ke", "t@k3", "t4k3", "t@ke!", "t4ke!", "t@k3!", "t4k3!",
+    "tak3", "ta!e", "t@!e", "t4!e", "ta!3", "t@!3", "t4!3", "t@k3!", "t4k3!",
+
     // Variations for "stab"
     "stab", "st@b", "st4b", "st@b!", "st4b!", "st@bb", "st4bb", "st@bb!", "st4bb!",
 
